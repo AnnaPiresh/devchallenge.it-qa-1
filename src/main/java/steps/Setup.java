@@ -19,12 +19,12 @@ public class Setup {
     capabilities.setBrowserName("chrome");
     capabilities.setVersion("latest");
     capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", false);
+    capabilities.setCapability("enableVideo", true);
     ChromeOptions chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("--lang=en-GB");
 
     driver = new RemoteWebDriver(
-        URI.create("http://127.0.0.1:4444/wd/hub").toURL(),
+        URI.create("http://172.17.0.4:4444/wd/hub").toURL(),
         capabilities
     );
   }
