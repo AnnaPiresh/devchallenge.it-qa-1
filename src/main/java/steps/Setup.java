@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Setup {
 
@@ -19,12 +21,14 @@ public class Setup {
     capabilities.setBrowserName("chrome");
     capabilities.setVersion("latest");
     capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", true);
+    capabilities.setCapability("enableVideo", false);
     ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.addArguments("--lang=en-GB");
+      Map<String, Object> prefs = new HashMap<>();
+      prefs.put("intl.accept_languages", "en-GB");
+      chromeOptions.setExperimentalOption("prefs", prefs);
 
-    driver = new RemoteWebDriver(
-        URI.create("http://172.17.0.4:4444/wd/hub").toURL(),
+      driver = new RemoteWebDriver(
+        URI.create("http://localhost:4444/wd/hub").toURL(),
         capabilities
     );
   }
