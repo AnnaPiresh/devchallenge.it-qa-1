@@ -28,7 +28,7 @@ public class Setup {
       chromeOptions.setExperimentalOption("prefs", prefs);
 
       driver = new RemoteWebDriver(
-        URI.create("http://localhost:4444/wd/hub").toURL(),
+        URI.create("http://172.17.0.4:4444/wd/hub").toURL(),
         capabilities
     );
   }
