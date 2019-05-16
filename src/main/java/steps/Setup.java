@@ -21,7 +21,7 @@ public class Setup {
     capabilities.setBrowserName("chrome");
     capabilities.setVersion("latest");
     capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", false);
+    capabilities.setCapability("enableVideo", true);
     ChromeOptions chromeOptions = new ChromeOptions();
       Map<String, Object> prefs = new HashMap<>();
       prefs.put("intl.accept_languages", "en-GB");
