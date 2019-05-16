@@ -27,14 +27,12 @@ public class HomePage extends BasePage {
     searchField.sendKeys(term);
 
     BrowserDataHelper.browserData.put("search_term", term);
-    log.info("Search term '{}' was enetered into search field", term);
 
     return this;
   }
 
   public HomePage clickEnterKey(){
     searchField.sendKeys(Keys.ENTER);
-    log.info("'Enter' button is clicked");
 
     return this;
   }

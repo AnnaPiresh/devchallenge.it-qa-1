@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,11 +23,13 @@ public class Setup {
     capabilities.setVersion("latest");
     capabilities.setCapability("enableVNC", true);
     capabilities.setCapability("enableVideo", true);
+    capabilities.setCapability("videoName", "video"+ new Date().toString());
+    capabilities.setCapability("enableLog", true);
+    capabilities.setCapability("logName", "log"+ new Date().toString());
     ChromeOptions chromeOptions = new ChromeOptions();
       Map<String, Object> prefs = new HashMap<>();
       prefs.put("intl.accept_languages", "en-GB");
       chromeOptions.setExperimentalOption("prefs", prefs);
-      chromeOptions.addArguments("start-maximised");
       chromeOptions.merge(capabilities);
 
       driver = new RemoteWebDriver(
