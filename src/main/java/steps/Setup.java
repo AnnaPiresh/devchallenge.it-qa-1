@@ -26,10 +26,12 @@ public class Setup {
       Map<String, Object> prefs = new HashMap<>();
       prefs.put("intl.accept_languages", "en-GB");
       chromeOptions.setExperimentalOption("prefs", prefs);
+      chromeOptions.addArguments("start-maximised");
+      chromeOptions.merge(capabilities);
 
       driver = new RemoteWebDriver(
         URI.create("http://172.17.0.4:4444/wd/hub").toURL(),
-        capabilities
+        chromeOptions
     );
   }
 
