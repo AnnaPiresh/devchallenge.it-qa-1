@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Search suite">
-    <test name="Google Search test">
+<suite name="Hotels suite">
+    <test name="New Hotel test">
         <classes>
             <class name="TestRunner"/>
         </classes>

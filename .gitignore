@@ -1,2 +1,4 @@
 target/
 .idea/
+allure-results/
+allure-2.12.1/

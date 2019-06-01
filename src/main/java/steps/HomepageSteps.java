@@ -2,27 +2,25 @@ package steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 
 public class HomepageSteps {
 
-  private WebDriver driver = Setup.driver;
+  private HomePage homepage;
 
-  private HomePage homepage = new HomePage(driver);
-
-  @Given("^user opens Google homepage$")
-  public void open_google_homepage(){
-    driver.navigate().to("https://www.google.com/");
+  public HomepageSteps() {
+    homepage = new HomePage(Setup.driver);
   }
 
-  @Given("^user enters search term \"(.+)\"$")
-  public void enter_search_term(String term){
-    homepage.enterSearchTerm(term);
+  @Given("^user opens hotel application$")
+  public void open_application(){
+    homepage.open();
   }
 
-  @And("^presses Enter on keyboard$")
-  public void press_enter(){
-    homepage.clickEnterKey();
+  @And("^user navigates to Article > New > Hotel$")
+  public void open_new_hotel(){
+    homepage.hoverArticleTab()
+            .hoverOverNewItem()
+            .clickHotelItem();
   }
 }
